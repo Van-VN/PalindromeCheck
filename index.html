@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Kiểm tra chuỗi Palindrome nhập từ người dùng</h2>
+<input style="height: 40px; width: 300px; padding-left: 20px" type="text" id="palindInput" placeholder="Nhập gì đó..."
+       oninput="palindrome()">
+<br>
+<h3>Kết quả: </h3>
+<h3 id="resultOutput"></h3>
+</body>
+</html>
+
+<script>
+    function palindrome() {
+        let check = 0;
+        let usrInput = document.getElementById('palindInput').value;
+        let arr = usrInput.split('');
+        let arr1 = [...arr];
+        arr1.reverse();
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr1[i]) {
+                check++;
+            }
+        }
+        if (check === arr.length) {
+            document.getElementById('resultOutput').innerHTML = `Chuỗi vừa nhập '${usrInput}' là chuỗi Palindrome`;
+        } else {
+            document.getElementById('resultOutput').innerHTML = `Chuỗi vừa nhập '${usrInput}' không phải là chuỗi Palindrome`;
+        }
+    }
+</script>
